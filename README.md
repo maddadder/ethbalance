@@ -12,7 +12,7 @@ To track your coin from your pants perspective, do the following: Create an Elec
 ![alt text](https://github.com/charlierlee/ethbalance/blob/master/screenshot.png?raw=true)
 
 # Demo
-![alt text](https://charlierlee.github.io/ethbalance/client/index.html)
+[link to demo](https://charlierlee.github.io/ethbalance/client/index.html)
 
 # Build Instructions
 1. navigate to the root of this project
