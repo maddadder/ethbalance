@@ -1,0 +1,24 @@
+{
+  "name": "ethbalance",
+  "version": "1.0.0",
+  "description": "Graph the historical ETH Balance across multiple Ethereum addresses",
+  "scripts": {
+    "start": "./node_modules/.bin/http-server client -c-1 -p 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlierlee/ethbalance.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charlierlee/ethbalance/issues"
+  },
+  "homepage": "https://github.com/charlierlee/ethbalance#readme",
+  "dependencies": {
+    "web3": "^1.3.4"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}

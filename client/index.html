@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Graph the balance of an Ethereum address over time.">
+    <link rel="icon" href="">
+
+    <title>ETH Balance Graph</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <style>
+        .lead2 {
+            font-size: 1.6rem;
+            font-weight: 300;
+            margin-bottom:15px;
+        }
+    </style>
+    <div class="container">
+        <div class="jumbotron mt-3">
+            <h1>ETH Balance Graph</h1>
+            <h2 class="lead2">Graph the historical ETH Balance across multiple Ethereum addresses.</h2>
+            <h3 class="lead"><b>Install metamask</b> and then do the following:</h3>
+            <h3 class="lead"><b>Either</b>: upload csv</h3>
+            <ul style="border:1px solid gray">
+                <li>Go to https://etherscan.io and export your transactions for each address you own</li>
+                <li>Append each export into a single csv file</li>
+                <li>Add column: <b>address</b> and populate it with the associated address.</li>
+                <li>Upload the file here --> <input type="file" id="fileinput" /></li>
+            </ul>
+            <h3 class="lead"><b>Or</b>: list your ethereum addresses</h3>
+            <div style="border:1px solid gray">
+                <div class="input-group">
+                    <textarea type="text" class="form-control" id="addresses" placeholder="addresses"></textarea>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="etherscan_apikey" placeholder="enter etherscan api key" value="" />
+                    <div class="input-group-append">
+                        <a class="btn btn-lg btn-primary" onclick="getTxLists();" role="button">Graph Balance &raquo;</a>
+                    </div>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <h3 class="lead">Once the graph is complete, check the console to <b>export</b> the csv with the populated data</h3>
+            <div>&nbsp;</div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Start Block:</span>
+                        </div>
+                        <input type="text" class="form-control" id="startBlock" placeholder="read only" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">End Block:</span>
+                        </div>
+                        <input type="text" class="form-control" id="endBlock" placeholder="read only" />
+                    </div>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <div id="output"></div>
+        </div>
+        <div id="graph" style="width:100%;height:600px;"></div>
+    </div>
+    <div class="fixed-bottom bg-light">
+        <p class="text-center text-muted">Source on <a href="https://github.com/charlierlee/ethbalance">GitHub</a> - Using <a href="https://plot.ly/javascript/">Plotly.js</a> and <a href="https://github.com/ethereum/web3.js/">Web3.js</a></p>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="./web3.min.js"></script>
+    <script src="./ethbalancegraph.js"></script>
+</body>
+</html>
