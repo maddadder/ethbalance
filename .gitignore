@@ -3,3 +3,6 @@ Utils/Terraform/ethbalance.pem
 Utils/Terraform/.terraform.lock.hcl
 Utils/Terraform/terraform.tfstate.backup
 Utils/Terraform/terraform.tfstate
+Utils/Docker/cert.pem
+Utils/Docker/key.pem
+Utils/Docker/leenet.pass

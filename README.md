@@ -29,8 +29,15 @@ To track your coin from your pants perspective, do the following: Create an Elec
 3. docker-compose up
 
 # Terraform
-1. Navigate to Terraform
-2. Add access_key and secret_key from aws
-3. terraform init
-4. terraform plan
-5. terraform apply
+* optional begin
+- sudo ap-get install pass
+- pass init YOUR_GPG_KEY_ID
+- pass insert access_key
+- pass insert secret_key
+- export TF_VAR_access_key=$(pass access_key)
+- export TF_VAR_secret_key=$(pass secret_key)
+* optional end
+- Navigate to ./Utils/Terraform
+- terraform init
+- terraform plan
+- terraform apply

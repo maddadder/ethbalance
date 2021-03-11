@@ -10,12 +10,21 @@
 # 10. Monitoring
 # 11. Scaling
 
-
+variable "access_key" {
+  description = "The access_key for aws"
+  type        = string
+  sensitive   = true
+}
+variable "secret_key" {
+  description = "The secret_key for aws"
+  type        = string
+  sensitive   = true
+}
 
  provider "aws" {
    region = "us-west-2"
-   access_key = ""
-   secret_key = ""
+   access_key = var.access_key
+   secret_key = var.secret_key
  }
 
 # I realize I could use terragrunt here to DRY the creation of the VPC

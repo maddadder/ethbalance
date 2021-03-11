@@ -8,3 +8,4 @@ services:
     image: charlierlee/ethbalance
     ports:
       - 80:80
+      - 443:443
