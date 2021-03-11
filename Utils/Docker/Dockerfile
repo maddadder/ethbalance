@@ -18,7 +18,7 @@ RUN apt-get update && \
     mkdir /etc/nginx/ssl
 
 RUN openssl req -x509 -newkey rsa:2048  -passin pass:'YOUR_SECURE_PASSWORD' -keyout "/etc/nginx/ssl/key.pem" -out "/etc/nginx/ssl/cert.pem" -days 365 -nodes \
-        -subj "/C=US/ST=Washington/L=Seattle/O=leenet/OU=IT Department/CN=ethbalance.leenet.lol"
+        -subj "/C=US/ST=Washington/L=Seattle/O=leenet/OU=IT Department/CN=*.leenet.lol"
 
 #COPY ./Utils/Docker/cert.pem /etc/nginx/ssl/cert.pem
 
