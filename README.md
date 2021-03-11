@@ -22,3 +22,15 @@ To track your coin from your pants perspective, do the following: Create an Elec
 3. npm run start
 
 4. Navigate to http://localhost:8080/
+
+# Docker
+1. Navigate to Utils/Docker
+2. docker-compose build
+3. docker-compose up
+
+# Terraform
+1. Navigate to Terraform
+2. Add access_key and secret_key from aws
+3. terraform init
+4. terraform plan
+5. terraform apply
