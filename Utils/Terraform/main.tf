@@ -150,6 +150,14 @@ resource "aws_instance" "web-server-instance" {
   }
   user_data = <<-EOF
             #!/bin/bash
+            sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
+            sudo mkswap /swapfile
+            sudo chmod 600 /swapfile
+            sudo swapon /swapfile
+            if ! grep -q 'init-poky' /etc/fstab ; then
+                sudo echo '# init-poky' >> /etc/fstab
+                sudo echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
+            fi
             sudo apt update -y
             sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release -y
             curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
