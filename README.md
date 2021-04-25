@@ -9,10 +9,10 @@ For example, if you moved coin to your phone, then sent it to your new phone lat
 To track your coin from your pants perspective, do the following: Create an Electrum wallet called all_btc_wallet. From every other **empty** wallet you own, export out the private keys, and load them into all_btc_wallet. Then use the **electrum_export_tool.py** to export your transactions which will keep a running total of your coin from your 'pants' persepective.
 
 # ethbalance (continued)
-![alt text](https://github.com/charlierlee/ethbalance/blob/master/screenshot.png?raw=true)
+![alt text](https://github.com/maddadder/ethbalance/blob/master/screenshot.png?raw=true)
 
 # Demo
-[link to demo](https://charlierlee.github.io/ethbalance/client/index.html)
+[link to demo](https://maddadder.github.io/ethbalance/client/index.html)
 
 # Build Instructions
 1. navigate to the root of this project

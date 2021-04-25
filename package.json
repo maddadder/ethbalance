@@ -7,14 +7,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/charlierlee/ethbalance.git"
+    "url": "git+https://github.com/maddadder/ethbalance.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/charlierlee/ethbalance/issues"
+    "url": "https://github.com/maddadder/ethbalance/issues"
   },
-  "homepage": "https://github.com/charlierlee/ethbalance#readme",
+  "homepage": "https://github.com/maddadder/ethbalance#readme",
   "dependencies": {
     "web3": "^1.3.4"
   },
