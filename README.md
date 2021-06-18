@@ -23,6 +23,17 @@ To track your coin from your pants perspective, do the following: Create an Elec
 
 4. Navigate to http://localhost:8080/
 
+# Node.js with azure authentication
+1. export baseUri="http://localhost:8080"
+
+2. export clientSecret="..."
+
+3. export clientId="..."
+
+4. Follow instructions here: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
+
+5. In step 4, Make sure to: In the Advanced settings > Implicit grant and hybrid flows section, check ID tokens as this sample requires the hybrid flow to be enabled to sign-in the user.
+
 # Docker
 1. Navigate to Utils/Docker
 2. docker-compose build
