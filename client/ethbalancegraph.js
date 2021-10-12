@@ -16,7 +16,11 @@ window.addEventListener('load', function () {
     }
 })
 
-// Wrapper for Web3 callback
+/**
+ * Wrapper for Web3 callback
+ * @param {function} inner 
+ * @returns Promise
+ */
 const promisify = (inner) =>
     new Promise((resolve, reject) =>
         inner((err, res) => {
@@ -28,7 +32,11 @@ const promisify = (inner) =>
         })
     );
 
-// Get the first transaction block for an address
+/**
+ * Get the first transaction block for an address
+ * @param {string} address 
+ * @returns json
+ */
 async function getTxList(address) {
     let response = await fetch("https://api.etherscan.io/api?apikey=" + global.etherscan_apikey + "&module=account&action=txlist&address=" + address + "&sort=asc");
     let data = await response.json();
@@ -38,7 +46,16 @@ async function getTxList(address) {
         throw(data.result);
     }
 }
-// Given an address and a range of blocks, query the Ethereum blockchain for the ETH balance across the range
+/**
+ * Given an address and a range of blocks, 
+ * query the Ethereum blockchain for the 
+ * ETH balance across the range
+ * @param {string} address 
+ * @param {number} startBlock 
+ * @param {number} endBlock 
+ * @param {number} step 
+ * @returns Array
+ */
 async function getBalanceInRange(address, startBlock, endBlock, step) {
 
     //Update UX with Start and End Block
@@ -81,7 +98,12 @@ async function getBalanceInRange(address, startBlock, endBlock, step) {
     return balances;
 }
 
-// Unpack a multi-dimensional object
+/**
+ * Unpack a multi-dimensional object
+ * @param {Array} rows 
+ * @param {string} index 
+ * @returns 
+ */
 function unpack(rows, index) {
     return rows.map(function (row) {
         return row[index];
