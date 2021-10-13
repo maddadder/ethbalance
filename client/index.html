@@ -40,7 +40,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" id="etherscan_apikey" placeholder="enter etherscan api key" value="" />
                     <div class="input-group-append">
-                        <a class="btn btn-lg btn-primary" onclick="getTxLists();" role="button">Graph Balance &raquo;</a>
+                        <a id="graphBalanceButton" class="btn btn-lg btn-primary" role="button">Graph Balance &raquo;</a>
                     </div>
                 </div>
             </div>
@@ -84,6 +84,6 @@
     <!-- Custom JavaScript -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="./web3.min.js"></script>
-    <script src="./ethbalancegraph.js"></script>
+    <script type="module" src="./ethbalancegraph.js"></script>
 </body>
 </html>
