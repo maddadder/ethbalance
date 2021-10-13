@@ -1,7 +1,5 @@
 import EthBalance from "./ethbalance.js";
 
-const obj = new EthBalance();
-
 // Check for MetaMask, otherwise use an HTTP Provider
 window.addEventListener('load', function () {
     if (typeof web3 !== 'undefined') {
@@ -13,9 +11,11 @@ window.addEventListener('load', function () {
     }
 })
 
-document.getElementById('fileinput').addEventListener('change', function(evt){
-    obj.readSingleFile(obj,evt);
+document.getElementById('fileinput').addEventListener('change', (evt) => {
+    const obj = new EthBalance();
+    obj.readSingleFile(evt);
 }, false);
-document.getElementById('graphBalanceButton').addEventListener("click", function(){
-    obj.getTxLists(obj);
+document.getElementById('graphBalanceButton').addEventListener("click", () => {
+    const obj = new EthBalance();
+    obj.getTxLists();
 }, false);

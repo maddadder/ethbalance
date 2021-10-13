@@ -160,34 +160,6 @@ class EthBalance
 	onlyUnique(value, index, self) {
 		return self.indexOf(value) === index;
 	}
-	
-	async getTxLists(self) 
-	{
-		let addressesText = document.getElementById("addresses").value;
-		self.global.etherscan_apikey = document.getElementById("etherscan_apikey").value
-		let addresses = [];
-		if(addressesText && addressesText.indexOf('\n')){
-			addresses = addressesText.split("\n");
-		}
-		let uniqueAddresses = addresses.filter(self.onlyUnique);
-		self.global.all_eth_external = [];
-
-		for(let i=0;i<uniqueAddresses.length;i++)
-		{
-			await self.sleep(1000);
-			let address = uniqueAddresses[i];
-			let result = await self.getTxList(address);
-			for(let j=0;j<result.length;j++)
-			{
-				if(!result[j].blockNumber)
-					continue;
-				result[j].address = address;
-				result[j].DateTime = new Date(result[j].timeStamp * 1000);
-				self.global.all_eth_external.push(result[j]);
-			}
-		}
-		await self.graphBalance(self.global.all_eth_external);
-	}
 
 	async graphBalance(txList) {
 		this.reset();
@@ -307,9 +279,35 @@ class EthBalance
 		csv = csv.join('\r\n');
 		console.log(csv);
 	}
-	
-	readSingleFile(self, evt) {
+	async getTxLists() 
+	{
+		let addressesText = document.getElementById("addresses").value;
+		this.global.etherscan_apikey = document.getElementById("etherscan_apikey").value
+		let addresses = [];
+		if(addressesText && addressesText.indexOf('\n')){
+			addresses = addressesText.split("\n");
+		}
+		let uniqueAddresses = addresses.filter(this.onlyUnique);
+		this.global.all_eth_external = [];
 
+		for(let i=0;i<uniqueAddresses.length;i++)
+		{
+			await this.sleep(1000);
+			let address = uniqueAddresses[i];
+			let result = await this.getTxList(address);
+			for(let j=0;j<result.length;j++)
+			{
+				if(!result[j].blockNumber)
+					continue;
+				result[j].address = address;
+				result[j].DateTime = new Date(result[j].timeStamp * 1000);
+				this.global.all_eth_external.push(result[j]);
+			}
+		}
+		await this.graphBalance(this.global.all_eth_external);
+	}
+	async readSingleFile(evt) {
+		let self = this;
 		var f = evt.target.files[0]; 
 		if (f) {
 			var r = new FileReader();
