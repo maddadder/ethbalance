@@ -22,33 +22,3 @@ To track your coin from your pants perspective, do the following: Create an Elec
 3. npm run start
 
 4. Navigate to http://localhost:8080/
-
-# Node.js with azure authentication
-1. export baseUri="http://localhost:8080"
-
-2. export clientSecret="..."
-
-3. export clientId="..."
-
-4. Follow instructions here: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
-
-5. In step 4, Make sure to: In the Advanced settings > Implicit grant and hybrid flows section, check ID tokens as this sample requires the hybrid flow to be enabled to sign-in the user.
-
-# Docker
-1. Navigate to Utils/Docker
-2. docker-compose build
-3. docker-compose up
-
-# Terraform
-* optional begin
-- sudo ap-get install pass
-- pass init YOUR_GPG_KEY_ID
-- pass insert access_key
-- pass insert secret_key
-- export TF_VAR_access_key=$(pass access_key)
-- export TF_VAR_secret_key=$(pass secret_key)
-* optional end
-- Navigate to ./Utils/Terraform
-- terraform init
-- terraform plan
-- terraform apply
